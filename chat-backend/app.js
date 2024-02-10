@@ -88,10 +88,6 @@ function saveAudio(audio) {
     fs.renameSync(audio.path, newPath)
 }
 
-app.get("/",(req,res)=>{
-    res.send("Hola mundo!")
-})
-
 //Conect to mongo
 mongoose.connect(process.env.MONGO_URL)
 
