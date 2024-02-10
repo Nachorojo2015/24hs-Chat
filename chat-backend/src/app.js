@@ -39,6 +39,7 @@ cron.schedule('0 0 * * *', async () => {
 dotenv.config()
 const app = express()
 const upload = multer({ dest: 'uploads/' })
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -48,8 +49,8 @@ app.use(compression({
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
 app.use('/uploads', express.static('uploads'));
 
-const server = app.listen(process.env.PORT, () => {
-    console.log(`Server started on Port ${process.env.PORT}`)
+const server = app.listen(PORT, () => {
+    console.log(`Server started on Port ${PORT}`)
 })
 
 server.on("error", (err) => {
