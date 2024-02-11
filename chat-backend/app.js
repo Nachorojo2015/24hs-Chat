@@ -8,7 +8,7 @@ import multer from "multer"
 import fs from "node:fs"
 import cron from "node-cron"
 
-import { usersModel } from "./src/mongo/models/users.js"
+import { usersModel } from "./mongodb/users.js"
 
 
 cron.schedule('0 0 * * *', async () => {
