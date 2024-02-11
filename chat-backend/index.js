@@ -93,25 +93,25 @@ mongoose.connect(process.env.MONGO_URL)
 
 const users = []
 
-const ioServer = new Server(server, {
-    cors: {
-        origin: 'http://localhost:5173',
-        credentials: true,
-    }
-})
-ioServer.on("connection", async (socket) => {
-    console.log("New connection")
-    socket.on("disconnect", () => {
-        console.log("Client disconnected");
-    })
-    socket.on("new-user", (nameUser) => {
-        users.push(nameUser);
-        ioServer.emit("users", [...new Set(users)].length)
-    })
-    socket.emit("all-messages", await usersModel.find())
-    socket.on("new-message", async (data) => {
-        console.log(data)
-        await usersModel.create(data)
-        ioServer.emit("all-messages", await usersModel.find())
-    })
-})
+// const ioServer = new Server(server, {
+//     cors: {
+//         origin: 'http://localhost:5173',
+//         credentials: true,
+//     }
+// })
+// ioServer.on("connection", async (socket) => {
+//     console.log("New connection")
+//     socket.on("disconnect", () => {
+//         console.log("Client disconnected");
+//     })
+//     socket.on("new-user", (nameUser) => {
+//         users.push(nameUser);
+//         ioServer.emit("users", [...new Set(users)].length)
+//     })
+//     socket.emit("all-messages", await usersModel.find())
+//     socket.on("new-message", async (data) => {
+//         console.log(data)
+//         await usersModel.create(data)
+//         ioServer.emit("all-messages", await usersModel.find())
+//     })
+// })
