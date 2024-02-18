@@ -1,7 +1,7 @@
 PASOS PARA INICIAR EL PROYECTO
 
 BACKEND:
-cd chat-backend // Ingresar a la carpeta del Back
+cd chat-backend // Ingresar a la carpeta del Back \n
 npm install // Comando para installar las dependencias
 npm run dev // Comando para levantar el servidor
 
